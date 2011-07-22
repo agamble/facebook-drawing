@@ -42,16 +42,6 @@ script(type="text/javascript")
 		circle(x, y);
 	});
 	*/
-	//checks if mouse is down
-	var md;
-	
-	$("#draw").mousedown(function(){
-		md=true;
-	})
-	
-	$("#draw").mouseup(function(){
-		md=false;
-	})
 	
 	//begin painting
 	$("#draw").mousedown(function (e) {
@@ -61,26 +51,22 @@ script(type="text/javascript")
 		y = e.pageY - this.offsetTop;
 
 		circle(x, y);
-
-	
-
-			$("#draw").mousemove(function(e) {
-				// creating each circle while the mouse moves
-				x = e.pageX - this.offsetLeft;
-				y = e.pageY - this.offsetTop;
-				circle(x, y);
-				$("#text").text(x + ', ' + y);
-				$("#draw").mouseup(function(){return;})
-			
-				})
-	
-	})
-
-	
-
-	
-	
-	
-
 		
-//some notes, I think that the above function works, the reason it hangs is that i guess it's never finished, because the point is always changing. bear this in mind. maybe it wouldnt be so good to have this an individual function and instead as a reference in the actual draw function. SEEEEE
+		//this calls the mousemove event to live as a result of pressing the mouse down
+		$("#draw").live('mousemove', function(e) {
+			// checking for where the cursor is at 'event' page context minus object context
+			x = e.pageX - this.offsetLeft;
+			y = e.pageY - this.offsetTop;
+			
+			circle(x, y);
+			$("#text").text(x + ', ' + y);
+
+			})	
+	})
+		
+	//this is the universal killswitch for the painting. when it is done, simply kill the mousemove function	
+	$(document).mouseup(function(){
+		$("#draw").die('mousemove');
+		})	
+
+	
