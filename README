@@ -1,0 +1,7 @@
+This is drawing app based on a few frameworks. 
+
+The core of the app is node.js and the express framework.
+
+Templating of the HTML is done by jade
+
+The drawing is done with some assistance from jQuery and jCanvas.
