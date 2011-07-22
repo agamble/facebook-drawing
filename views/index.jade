@@ -1,0 +1,49 @@
+
+h1= title
+p Welcome to #{title}
+
+include includes/head
+div.selector
+div#text
+div#drawdiv
+	canvas#draw.draw(width=500, height=400)
+
+
+
+
+script(type="text/javascript")
+	
+	var x;
+	var y;
+	
+
+	
+	function circle(x,y){
+		$("canvas.draw").drawEllipse({
+			fillStyle: "black",
+			x: x, y: y,
+			width: 100, height: 100,
+			fromCenter:true
+		});
+	};
+	
+	$("#draw").bind('click',function(e){
+	
+			x = e.pageX - this.offsetLeft;
+			y = e.pageY - this.offsetTop;
+		
+		$("#text").text(x +', '+y);
+		
+		circle(x, y);
+	});
+		
+
+
+	
+
+	
+	
+	
+
+		
+//some notes, I think that the above function works, the reason it hangs is that i guess it's never finished, because the point is always changing. bear this in mind. maybe it wouldnt be so good to have this an individual function and instead as a reference in the actual draw function. SEEEEE
