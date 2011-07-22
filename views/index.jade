@@ -27,6 +27,9 @@ script(type="text/javascript")
 		});
 	};
 	
+	
+	//old code which simply creates one circle instead of the many BELOW!!!
+	/*
 	$("#draw").bind('click',function(e){
 	
 			x = e.pageX - this.offsetLeft;
@@ -36,7 +39,25 @@ script(type="text/javascript")
 		
 		circle(x, y);
 	});
+	*/
 		
+	//begin painting
+	$("#draw").bind('mousedown', function(e){
+	
+	// creating preliminary circle to start painting
+		x = e.pageX - this.offsetLeft;
+		y = e.pageY - this.offsetTop;
+			
+		circle(x,y);
+		
+		$("#draw").bind('mousemove',function(e){
+		// creating each circle while the mouse moves
+			x = e.pageX - this.offsetLeft;
+			y = e.pageY - this.offsetTop;
+			circle(x,y);
+		
+		})
+	})
 
 
 	
