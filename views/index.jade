@@ -15,19 +15,21 @@ script(type="text/javascript")
 	
 	var x;
 	var y;
-	
 
-	
-	function circle(x,y){
+
+
+	function circle(x, y) {
 		$("canvas.draw").drawEllipse({
 			fillStyle: "black",
-			x: x, y: y,
-			width: 100, height: 100,
-			fromCenter:true
+			x: x,
+			y: y,
+			width: 100,
+			height: 100,
+			fromCenter: true
 		});
 	};
-	
-	
+
+
 	//old code which simply creates one circle instead of the many BELOW!!!
 	/*
 	$("#draw").bind('click',function(e){
@@ -40,25 +42,39 @@ script(type="text/javascript")
 		circle(x, y);
 	});
 	*/
-		
-	//begin painting
-	$("#draw").bind('mousedown', function(e){
+	//checks if mouse is down
+	var md;
 	
-	// creating preliminary circle to start painting
+	$("#draw").mousedown(function(){
+		md=true;
+	})
+	
+	$("#draw").mouseup(function(){
+		md=false;
+	})
+	
+	//begin painting
+	$("#draw").mousedown(function (e) {
+
+		// creating preliminary circle to start painting
 		x = e.pageX - this.offsetLeft;
 		y = e.pageY - this.offsetTop;
-			
-		circle(x,y);
-		
-		$("#draw").bind('mousemove',function(e){
-		// creating each circle while the mouse moves
-			x = e.pageX - this.offsetLeft;
-			y = e.pageY - this.offsetTop;
-			circle(x,y);
-		
-		})
-	})
 
+		circle(x, y);
+
+	
+
+			$("#draw").mousemove(function(e) {
+				// creating each circle while the mouse moves
+				x = e.pageX - this.offsetLeft;
+				y = e.pageY - this.offsetTop;
+				circle(x, y);
+				$("#text").text(x + ', ' + y);
+				$("#draw").mouseup(function(){return;})
+			
+				})
+	
+	})
 
 	
 
