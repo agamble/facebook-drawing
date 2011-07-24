@@ -1,9 +1,14 @@
 body {
-	padding-left: 50px;
-	padding-right: 50px;
-	padding-top: 10px;
-	padding-bottom: 50px;
+	
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	width: 960px;
+}
+
+h1 {
+	position:relative;
+	left:45px;
+	top: 20px;
+
 }
 
 a {
@@ -11,11 +16,14 @@ a {
 }
 
 #clearcanvas {
-	position: absolute;
-	bottom: 420px;
-	left: 700px;
+	position: relative;
+	left: 600px;
+	top: -50px;
 	padding: 10px;
 	background-color: red;
+	
+
+	
 }
 
 .ui-slider-handle{
@@ -26,28 +34,26 @@ a {
 	width:100px;
 }
 
-#slider {
-	margin-bottom:15px;
-}
 
 #brushslider {
-	position: absolute;
-	bottom: 430px;
+	position: relative;
 	left: 300px;
+	top: -35px;
 	z-index: 1;
 }
 
 
  #brushsizetext {
-	position: absolute;
-	bottom: 430px;
-	left: 420px; 
+	position: relative;
+
+	left: 420px;
+	top: -20px;
 }
 
 
 
 #draw {
-		position:relative;
+		position:absolute;
 	 -ttrmoz-user-select: -moz-none;
 	   -khtml-user-select: none;
 	   -webkit-user-select: none;
@@ -56,16 +62,18 @@ a {
 	   border-width: 5px;
 	   border-style: solid;
 	   border-color: #000;
-	   z-index: 1; !important
-	   margin-bottom: 20;
+	   z-index: 1;
+	   left:50%;
+	   margin-left: -455px;
+
 }
 
 #colorpicker {
 	position:absolute;
-	left: 750px;	
-	width:195px;
-	top: 150px;
-	z-index: 2; !important
+	left: 740px;	
+	width: 195px;
+	top: 120px;
+	z-index: 1;
 
 	display: none;
 }
@@ -73,11 +81,11 @@ a {
 
 
 #clickme {
-	position: absolute;
-	left: 810px;
+	position: relative;
+	left: 685px;
+	top: -50px;
 	padding: 10px;
 	width: 112px;
-	bottom: 420px;
 	background-color: black;
 	color: white;
 
