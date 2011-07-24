@@ -62,18 +62,18 @@ a {
 	   border-width: 5px;
 	   border-style: solid;
 	   border-color: #000;
-	   z-index: 1;
-	   left:50%;
+	   z-index: -1; !important
+	   left:45px;
 	   margin-left: -455px;
 
 }
 
 #colorpicker {
 	position:absolute;
-	left: 740px;	
 	width: 195px;
+	left: 740px;	
 	top: 120px;
-	z-index: 1;
+	z-index: 5; !important
 
 	display: none;
 }
