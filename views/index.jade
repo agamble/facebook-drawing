@@ -4,9 +4,11 @@ h1 Start Drawing!
 include includes/head
 
 div#colorpicker
+
 div#text
 div#brushsizetext	
 div#brushslider
+span#clearcanvas Clear Canvas!
 span#clickme Choose a colour!
 canvas#draw(width=900, height=400)
 
@@ -50,7 +52,9 @@ script(type="text/javascript")
 		}
 	});
 	
-
+	$("#clearcanvas").click(function(){
+		$("canvas#draw").clearCanvas();
+	});
 	
 	//run this so it works on page load
 	sliderupdate();
@@ -106,7 +110,8 @@ script(type="text/javascript")
 			y = e.pageY - this.offsetTop;
 
 			circle(color, x, y, size);
-			$("#text").text(x + ', ' + y);
+			//to check co ordinates are working
+			// $("#text").text(x + ', ' + y);
 
 			})	
 	})
