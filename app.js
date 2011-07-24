@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -7,7 +6,6 @@ var express = require('express');
 
 var app = module.exports = express.createServer();
 
-var canvas = require ('canvas');
 // Configuration
 
 app.configure(function(){
