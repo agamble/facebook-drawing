@@ -1,8 +1,28 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+.ui-slider {
+	width:400px;
+}
+#slider {
+	margin: 15px;
+}
+
+#draw {
+ -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
+   cursor: default;
+   border-width: 5px;
+   border-style: solid;
+   border-color: #000;
+
+}
+
+

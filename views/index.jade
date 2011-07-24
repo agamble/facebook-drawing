@@ -3,10 +3,11 @@ h1= title
 p Welcome to #{title}
 
 include includes/head
-div.selector
+div#colorpicker
 div#text
-div#moretext
-div#slider
+div#brushsize
+	div#slider
+	div#brushsizetext	
 canvas#draw(width=500, height=400)
 
 
@@ -21,26 +22,34 @@ script(type="text/javascript")
 	var y;
 	var size;
 	
+	//color picker
+	$('#colorpicker').farbtastic();
+	
 	//function to be run to update text saying what size the brush is
 	function sliderupdate(){
 		size = $("#slider").slider("value");
-		$("#moretext").text(size);	
+		$("#brushsizetext").text("Brush Size: "+ size);	
 	}
+
 	
 	//slider function
 	$( "#slider" ).slider({
-		min:1,
+		min:0,
 		max:100,
 		value:1,
 		slide: function() {
 			sliderupdate();
 		}
 	});
-
+	
+	var color = $.farbtastic("#colorpicker").color;
+	
+	//run this so it works on page load
+	sliderupdate();
 	//the drawing circles for painting thing
-	function circle(x, y, size) {
+	function circle(color, x, y, size) {
 		$("canvas#draw").drawEllipse({
-			fillStyle: "black",
+			fillStyle: color,
 			x: x,
 			y: y,
 			width: size,
@@ -61,7 +70,8 @@ script(type="text/javascript")
 		circle(x, y);
 	});
 	*/
-
+	$("#draw").onselectstart = function () { return false; } // ie
+	$("#draw").onmousedown = function () { return false; }
 	//begin painting
 	$("#draw").mousedown(function (e) {
 
@@ -69,15 +79,17 @@ script(type="text/javascript")
 		x = e.pageX - this.offsetLeft;
 		y = e.pageY - this.offsetTop;
 
-		circle(x, y, size);
+		circle(color, x, y, size);
+		
+		
 		
 		//this calls the mousemove event to live as a result of pressing the mouse down
 		$("#draw").live('mousemove', function(e) {
 			// checking for where the cursor is at 'event' page context minus object context
 			x = e.pageX - this.offsetLeft;
 			y = e.pageY - this.offsetTop;
-			
-			circle(x, y, size);
+
+			circle(color, x, y, size);
 			$("#text").text(x + ', ' + y);
 
 			})	
