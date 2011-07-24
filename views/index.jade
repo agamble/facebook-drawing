@@ -21,6 +21,7 @@ script(type="text/javascript")
 	var x;
 	var y;
 	var size;
+	var color;
 	
 	//color picker
 	$('#colorpicker').farbtastic();
@@ -42,7 +43,7 @@ script(type="text/javascript")
 		}
 	});
 	
-	var color = $.farbtastic("#colorpicker").color;
+
 	
 	//run this so it works on page load
 	sliderupdate();
@@ -70,15 +71,21 @@ script(type="text/javascript")
 		circle(x, y);
 	});
 	*/
+	//sort of fixes this pointer changes to text selector on paint issue....
 	$("#draw").onselectstart = function () { return false; } // ie
-	$("#draw").onmousedown = function () { return false; }
+	$("#draw").onmousedown = function () { return false; } //mozilla based browsers (nothing for chrome yet)
+	
 	//begin painting
 	$("#draw").mousedown(function (e) {
 
 		// creating preliminary circle to start painting
 		x = e.pageX - this.offsetLeft;
 		y = e.pageY - this.offsetTop;
-
+		
+		//when the mouse is pushed, it calls the color selected from farbtastic
+		color = $.farbtastic("#colorpicker").color;
+		
+		//paints the first circle with this color!
 		circle(color, x, y, size);
 		
 		
