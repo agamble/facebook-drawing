@@ -1,14 +1,16 @@
 
-h1= title
-p Welcome to #{title}
+h1 Start Drawing!
 
 include includes/head
+
 div#colorpicker
 div#text
-div#brushsize
-	div#slider
-	div#brushsizetext	
-canvas#draw(width=500, height=400)
+div#brushsizetext	
+div#brushslider
+span#clickme Choose a colour!
+canvas#draw(width=900, height=400)
+
+
 
 
 
@@ -28,16 +30,21 @@ script(type="text/javascript")
 	
 	//function to be run to update text saying what size the brush is
 	function sliderupdate(){
-		size = $("#slider").slider("value");
+		size = $("#brushslider").slider("value");
 		$("#brushsizetext").text("Brush Size: "+ size);	
 	}
 
+	$('#clickme').click(function() {
+			$('#colorpicker').slideDown('slow', function() {
+	// Animation complete.
+			});
+	});
 	
 	//slider function
-	$( "#slider" ).slider({
+	$( "#brushslider" ).slider({
 		min:0,
-		max:100,
-		value:1,
+		max:101,
+		value:20,
 		slide: function() {
 			sliderupdate();
 		}
@@ -71,6 +78,7 @@ script(type="text/javascript")
 		circle(x, y);
 	});
 	*/
+	
 	//sort of fixes this pointer changes to text selector on paint issue....
 	$("#draw").onselectstart = function () { return false; } // ie
 	$("#draw").onmousedown = function () { return false; } //mozilla based browsers (nothing for chrome yet)
@@ -89,7 +97,8 @@ script(type="text/javascript")
 		circle(color, x, y, size);
 		
 		
-		
+		$('#colorpicker').slideUp('slow', function() {});
+			
 		//this calls the mousemove event to live as a result of pressing the mouse down
 		$("#draw").live('mousemove', function(e) {
 			// checking for where the cursor is at 'event' page context minus object context

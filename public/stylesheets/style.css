@@ -1,27 +1,72 @@
 body {
-	padding: 50px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 20px;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
-.ui-slider {
-	width:400px;
+
+.ui-slider-handle{
+	background:black;
 }
+
+.ui-slider {
+	width:100px;
+}
+
 #slider {
-	margin: 15px;
+	margin-bottom:15px;
+}
+
+#brushslider {
+	position: absolute;
+	bottom: 170px;
+	left: 300px;
+	z-index: 1;
+}
+
+#brushsizetext {
+	position: absolute;
+	bottom: 170px;
+	left: 420px; !important
 }
 
 #draw {
- -moz-user-select: -moz-none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
-   user-select: none;
-   cursor: default;
-   border-width: 5px;
-   border-style: solid;
-   border-color: #000;
+		position:relative;
+	 -ttrmoz-user-select: -moz-none;
+	   -khtml-user-select: none;
+	   -webkit-user-select: none;
+	   user-select: none;
+	   cursor: default;
+	   border-width: 5px;
+	   border-style: solid;
+	   border-color: #000;
+	   z-index: 1; !important
+}
+
+#colorpicker {
+	position:absolute;
+	left: 750px;	
+	width:195px;
+	top: 150px;
+	z-index: 2; !important
+
+	display: none;
+}
+
+
+
+#clickme {
+	position: relative;
+	left:728px;
+	padding: 10px;
+	width: 115px;
+	bottom: 40px;
+	background-color: black;
+	color: white;
 
 }
 
