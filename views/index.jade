@@ -52,9 +52,16 @@ script(type="text/javascript")
 		}
 	});
 	
+	//some now.js magic
 	$("#clearcanvas").click(function(){
-		$("canvas#draw").clearCanvas();
+		now.sendclearcanvas();
 	});
+	
+	now.recclearcanvas = function(){
+		$("canvas#draw").clearCanvas();
+	
+	}
+	//end nowjs clearcanvas magic
 	
 	//run this so it works on page load
 	sliderupdate();
@@ -94,12 +101,18 @@ script(type="text/javascript")
 		x = e.pageX - this.offsetLeft;
 		y = e.pageY - this.offsetTop;
 		
+		now.x = x;
+		now.y = y;
+		now.size = size;
+		now.color = color;
+		
 		//when the mouse is pushed, it calls the color selected from farbtastic
 		color = $.farbtastic("#colorpicker").color;
 		
 		//paints the first circle with this color!
-		circle(color, x, y, size);
+		circle(color, now.x, now.y, size);
 		
+		now.sendpaint(now.color, now.x, now.y, now.size);
 		
 		$('#colorpicker').slideUp('slow', function() {});
 			
@@ -108,14 +121,25 @@ script(type="text/javascript")
 			// checking for where the cursor is at 'event' page context minus object context
 			x = e.pageX - this.offsetLeft;
 			y = e.pageY - this.offsetTop;
+			
+			now.x = x;
+			now.y = y;
+			
+			//now.sendpaint(now.x, now.y);
+			
+			circle(now.color, now.x, now.y, now.size);
 
-			circle(color, x, y, size);
 			//to check co ordinates are working
 			// $("#text").text(x + ', ' + y);
 
 			})	
 	})
-		
+	
+	now.receivepaint =  function(){
+		circle(now.color, now.x, now.y, now.size);
+	}
+	
+	
 	//this is the universal killswitch for the painting. when it is done, simply kill the mousemove function	
 	$(document).mouseup(function(){
 		$("#draw").die('mousemove');

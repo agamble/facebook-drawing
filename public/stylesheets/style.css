@@ -5,7 +5,7 @@ body {
 }
 
 h1 {
-	position:relative;
+	position:absolute;
 	left:45px;
 	top: 20px;
 
@@ -16,9 +16,9 @@ a {
 }
 
 #clearcanvas {
-	position: relative;
+	position: absolute;
 	left: 600px;
-	top: -50px;
+	top: 50px;
 	padding: 10px;
 	background-color: red;
 	
@@ -36,24 +36,24 @@ a {
 
 
 #brushslider {
-	position: relative;
+	position: absolute;
 	left: 300px;
-	top: -35px;
+	top: 50px;
 	z-index: 1;
 }
 
 
  #brushsizetext {
-	position: relative;
+	position: absolute;
 
 	left: 420px;
-	top: -20px;
+	top: 50px;
 }
 
 
 
 #draw {
-		position:absolute;
+	position:absolute;
 	 -ttrmoz-user-select: -moz-none;
 	   -khtml-user-select: none;
 	   -webkit-user-select: none;
@@ -62,9 +62,12 @@ a {
 	   border-width: 5px;
 	   border-style: solid;
 	   border-color: #000;
-	   z-index: -1; !important
-	   left:45px;
+	   z-index: -1;
+	   left: 50%;
 	   margin-left: -455px;
+	   top: 100px;
+	   padding-bottom: 100px;
+
 
 }
 
@@ -81,9 +84,9 @@ a {
 
 
 #clickme {
-	position: relative;
-	left: 685px;
-	top: -50px;
+	position: absolute;
+	left: 770px;
+	top: 50px;
 	padding: 10px;
 	width: 112px;
 	background-color: black;

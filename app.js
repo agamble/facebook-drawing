@@ -41,3 +41,14 @@ app.get('/', function(req, res){
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+
+var everyone = require("now").initialize(app);
+
+everyone.now.sendclearcanvas = function(){
+		everyone.now.recclearcanvas();
+}
+
+everyone.now.sendpaint = function(){
+	everyone.now.receivepaint(this.now.color, this.now.y, this.now.x, this.now.size);
+}
+
