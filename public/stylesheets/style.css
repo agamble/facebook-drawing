@@ -1,14 +1,19 @@
 body {
 	
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-	width: 960px;
+
 }
 
 h1 {
 	position:absolute;
-	left:45px;
+	left: 50px;
 	top: 20px;
 
+}
+
+#container {
+	width:960px;
+	margin: 0 auto;
 }
 
 a {
@@ -17,11 +22,10 @@ a {
 
 #clearcanvas {
 	position: absolute;
-	left: 600px;
-	top: 50px;
-	padding: 10px;
 	background-color: red;
-	
+	padding: 10px;
+	top: 30px;
+	left: 580px;
 
 	
 }
@@ -37,61 +41,73 @@ a {
 
 #brushslider {
 	position: absolute;
-	left: 300px;
-	top: 50px;
+	top: 45px;
+	left: 270px;
 	z-index: 1;
 }
 
 
  #brushsizetext {
 	position: absolute;
-
-	left: 420px;
-	top: 50px;
+	left: 400px;
+	top: 45px;
 }
 
+#drawingdiv {
+	width: 900px;
+	height:400px;
+	margin: 0px auto;
+	border: 5px solid black;
+	margin-top: 100px;
 
+
+
+}
 
 #draw {
-	position:absolute;
-	 -ttrmoz-user-select: -moz-none;
-	   -khtml-user-select: none;
-	   -webkit-user-select: none;
-	   user-select: none;
-	   cursor: default;
-	   border-width: 5px;
-	   border-style: solid;
-	   border-color: #000;
-	   z-index: -1;
-	   left: 50%;
-	   margin-left: -455px;
-	   top: 100px;
-	   padding-bottom: 100px;
+	position:relative;
+	-ttrmoz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	cursor: default;
+	height: 400px;
+	width: 900px;
+
+
+
 
 
 }
+
+
 
 #colorpicker {
 	position:absolute;
 	width: 195px;
-	left: 740px;	
+	left: 740px;
 	top: 120px;
-	z-index: 5; !important
-
-	display: none;
+	z-index: 4;
 }
 
 
 
 #clickme {
 	position: absolute;
-	left: 770px;
-	top: 50px;
 	padding: 10px;
 	width: 112px;
+	left: 780px;
+	top: 30px;
 	background-color: black;
 	color: white;
 
 }
 
+#footer {
+	width: 100%;
+	height: 20px;
+	text-align: center;
+	font: italic 14px Helvetica, Arial, sans-serif;
+	color: gray;
+}
 

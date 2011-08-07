@@ -1,17 +1,19 @@
 
-h1 Start Drawing!
+
 
 include includes/head
-
-div#colorpicker
-
-div#text
-div#brushsizetext	
-div#brushslider
-span#clearcanvas Clear Canvas!
-span#clickme Choose a colour!
-canvas#draw(width=900, height=400)
-
+div#container
+	h1 Start Drawing!
+	div#colorpicker
+	div#text
+	div#brushsizetext	
+	div#brushslider
+	span#clearcanvas Clear Canvas!
+	span#clickme Choose a colour!
+div#drawingdiv
+	canvas#draw(width=900, height=400)
+div#footer
+	p darn simple drawing - alexander gamble 2011
 
 
 
@@ -53,6 +55,7 @@ script(type="text/javascript")
 	});
 	
 	//some now.js magic
+	/*
 	$("#clearcanvas").click(function(){
 		now.sendclearcanvas();
 	});
@@ -62,7 +65,7 @@ script(type="text/javascript")
 	
 	}
 	//end nowjs clearcanvas magic
-	
+	*/
 	//run this so it works on page load
 	sliderupdate();
 	//the drawing circles for painting thing
@@ -101,18 +104,18 @@ script(type="text/javascript")
 		x = e.pageX - this.offsetLeft;
 		y = e.pageY - this.offsetTop;
 		
-		now.x = x;
-		now.y = y;
-		now.size = size;
-		now.color = color;
+		//now.x = x;
+		//now.y = y;
+		//now.size = size;
+		//now.color = color;
 		
 		//when the mouse is pushed, it calls the color selected from farbtastic
 		color = $.farbtastic("#colorpicker").color;
 		
 		//paints the first circle with this color!
-		circle(color, now.x, now.y, size);
+		circle(color, x, y, size);
 		
-		now.sendpaint(now.color, now.x, now.y, now.size);
+		// now.sendpaint(now.color, now.x, now.y, now.size);
 		
 		$('#colorpicker').slideUp('slow', function() {});
 			
@@ -122,23 +125,23 @@ script(type="text/javascript")
 			x = e.pageX - this.offsetLeft;
 			y = e.pageY - this.offsetTop;
 			
-			now.x = x;
-			now.y = y;
+			//now.x = x;
+			//now.y = y;
 			
 			//now.sendpaint(now.x, now.y);
 			
-			circle(now.color, now.x, now.y, now.size);
+			circle(color, x, y, size);
 
 			//to check co ordinates are working
-			// $("#text").text(x + ', ' + y);
+			//$("#text").text(x + ', ' + y);
 
 			})	
 	})
-	
+	/*
 	now.receivepaint =  function(){
 		circle(now.color, now.x, now.y, now.size);
 	}
-	
+	*/
 	
 	//this is the universal killswitch for the painting. when it is done, simply kill the mousemove function	
 	$(document).mouseup(function(){
