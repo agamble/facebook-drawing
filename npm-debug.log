@@ -1,0 +1,200 @@
+info it worked if it ends with ok
+verbose cli [ 'node',
+verbose cli   '/home/alexander/local/node/bin/npm',
+verbose cli   'install',
+verbose cli   'mongodb' ]
+info using npm@1.0.18
+info using node@v0.4.10
+verbose config file /home/alexander/.npmrc
+verbose config file /home/alexander/local/node/etc/npmrc
+silly testEngine { name: 'application-name',
+silly testEngine   version: '0.0.1',
+silly testEngine   private: true,
+silly testEngine   dependencies: { express: '2.4.3', jade: '>= 0.0.1' },
+silly testEngine   _npmJsonOpts: 
+silly testEngine    { file: '/home/alexander/elephants/package.json',
+silly testEngine      wscript: false,
+silly testEngine      contributors: false,
+silly testEngine      serverjs: false },
+silly testEngine   _id: 'application-name@0.0.1',
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.18',
+silly testEngine   _nodeVersion: 'v0.4.10',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/alexander/elephants/package.json
+verbose loadDefaults application-name@0.0.1
+silly testEngine { name: 'jade',
+silly testEngine   description: 'Jade template engine',
+silly testEngine   version: '0.13.0',
+silly testEngine   author: 
+silly testEngine    { name: 'TJ Holowaychuk',
+silly testEngine      email: 'tj@vision-media.ca' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/visionmedia/jade.git' },
+silly testEngine   main: './index.js',
+silly testEngine   bin: { jade: './bin/jade' },
+silly testEngine   devDependencies: 
+silly testEngine    { expresso: '0.6.4',
+silly testEngine      'coffee-script': '>= 0.0.1',
+silly testEngine      sass: '>= 0.0.1',
+silly testEngine      less: '>= 0.0.1',
+silly testEngine      markdown: '>= 0.0.1',
+silly testEngine      stylus: '>= 0.0.1' },
+silly testEngine   scripts: { prepublish: 'npm prune' },
+silly testEngine   engines: { node: '>= 0.1.98' },
+silly testEngine   _npmJsonOpts: 
+silly testEngine    { file: '/home/alexander/elephants/node_modules/jade/package.json',
+silly testEngine      wscript: false,
+silly testEngine      contributors: false,
+silly testEngine      serverjs: false },
+silly testEngine   _id: 'jade@0.13.0',
+silly testEngine   dependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.18',
+silly testEngine   _nodeVersion: 'v0.4.10',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/alexander/elephants/node_modules/jade/package.json
+verbose loadDefaults jade@0.13.0
+silly testEngine { name: 'express',
+silly testEngine   description: 'Sinatra inspired web development framework',
+silly testEngine   version: '2.4.3',
+silly testEngine   author: 
+silly testEngine    { name: 'TJ Holowaychuk',
+silly testEngine      email: 'tj@vision-media.ca' },
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'TJ Holowaychuk',
+silly testEngine        email: 'tj@vision-media.ca' },
+silly testEngine      { name: 'Aaron Heckmann',
+silly testEngine        email: 'aaron.heckmann+github@gmail.com' },
+silly testEngine      { name: 'Ciaran Jessup', email: 'ciaranj@gmail.com' },
+silly testEngine      { name: 'Guillermo Rauch', email: 'rauchg@gmail.com' } ],
+silly testEngine   dependencies: 
+silly testEngine    { connect: '>= 1.5.2 < 2.0.0',
+silly testEngine      mime: '>= 0.0.1',
+silly testEngine      qs: '>= 0.0.6' },
+silly testEngine   devDependencies: 
+silly testEngine    { 'connect-form': '0.2.1',
+silly testEngine      ejs: '0.4.2',
+silly testEngine      expresso: '0.7.2',
+silly testEngine      hamljs: '0.5.1',
+silly testEngine      jade: '0.11.0',
+silly testEngine      stylus: '0.13.0',
+silly testEngine      should: '0.2.1',
+silly testEngine      'express-messages': '0.0.2',
+silly testEngine      'node-markdown': '>= 0.0.1',
+silly testEngine      'connect-redis': '>= 0.0.1' },
+silly testEngine   keywords: [ 'framework', 'sinatra', 'web', 'rest', 'restful' ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/visionmedia/express.git' },
+silly testEngine   main: 'index',
+silly testEngine   bin: { express: './bin/express' },
+silly testEngine   scripts: { test: 'make test', prepublish: 'npm prune' },
+silly testEngine   engines: { node: '>= 0.4.1 < 0.5.0' },
+silly testEngine   _npmJsonOpts: 
+silly testEngine    { file: '/home/alexander/elephants/node_modules/express/package.json',
+silly testEngine      wscript: false,
+silly testEngine      contributors: false,
+silly testEngine      serverjs: false },
+silly testEngine   _id: 'express@2.4.3',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.18',
+silly testEngine   _nodeVersion: 'v0.4.10',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/alexander/elephants/node_modules/express/package.json
+verbose loadDefaults express@2.4.3
+verbose has wscript [ undefined,
+verbose has wscript   { file: '/home/alexander/elephants/node_modules/canvas/package.json',
+verbose has wscript     contributors: false,
+verbose has wscript     serverjs: false,
+verbose has wscript     wscript: true } ]
+silly testEngine { name: 'canvas',
+silly testEngine   description: 'Canvas graphics API backed by Cairo',
+silly testEngine   version: '0.7.0',
+silly testEngine   author: { name: 'TJ Holowaychuk', email: 'tj@learnboost.com' },
+silly testEngine   keywords: [ 'canvas', 'graphic', 'graphics', 'pixman', 'cairo' ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/learnboost/node-canvas.git' },
+silly testEngine   scripts: { preinstall: 'node-waf configure build' },
+silly testEngine   devDependencies: { express: '2.3.7', expresso: '0.7.6', jade: '0.11.0' },
+silly testEngine   engines: { node: '>= 0.4.0 && < 0.6.0' },
+silly testEngine   main: './lib/canvas.js',
+silly testEngine   _npmJsonOpts: 
+silly testEngine    { file: '/home/alexander/elephants/node_modules/canvas/package.json',
+silly testEngine      contributors: false,
+silly testEngine      serverjs: false,
+silly testEngine      wscript: true },
+silly testEngine   _id: 'canvas@0.7.0',
+silly testEngine   dependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.18',
+silly testEngine   _nodeVersion: 'v0.4.10',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/alexander/elephants/node_modules/canvas/package.json
+verbose loadDefaults canvas@0.7.0
+verbose has wscript [ undefined,
+verbose has wscript   { file: '/home/alexander/elephants/node_modules/hashlib/package.json',
+verbose has wscript     contributors: false,
+verbose has wscript     serverjs: false,
+verbose has wscript     wscript: true } ]
+silly testEngine { name: 'hashlib',
+silly testEngine   author: { name: 'Illarionov Oleg' },
+silly testEngine   description: 'lib for node which makes hashes',
+silly testEngine   version: '1.0.0',
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Fedor Indutny',
+silly testEngine        email: 'fedor.indutny@gmail.com' },
+silly testEngine      { name: 'Seth Fitzsimmons',
+silly testEngine        email: 'seth@mojodna.net' },
+silly testEngine      { name: 'Wade Simmons', email: 'wade@wades.im' } ],
+silly testEngine   main: './build/default/hashlib.node',
+silly testEngine   directories: { lib: './build/default' },
+silly testEngine   engines: { node: '>= 0.2.0' },
+silly testEngine   _npmJsonOpts: 
+silly testEngine    { file: '/home/alexander/elephants/node_modules/hashlib/package.json',
+silly testEngine      contributors: false,
+silly testEngine      serverjs: false,
+silly testEngine      wscript: true },
+silly testEngine   _id: 'hashlib@1.0.0',
+silly testEngine   scripts: { preinstall: 'node-waf clean || true; node-waf configure build' },
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.18',
+silly testEngine   _nodeVersion: 'v0.4.10',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/alexander/elephants/node_modules/hashlib/package.json
+verbose loadDefaults hashlib@1.0.0
+verbose from cache /home/alexander/elephants/package.json
+verbose into /home/alexander/elephants [ 'mongodb' ]
+verbose cache add [ 'mongodb', null ]
+info addNamed [ 'mongodb', '' ]
+verbose addNamed [ null, '' ]
+verbose GET mongodb
+verbose raw, before any munging mongodb
+verbose url resolving [ 'http://registry.npmjs.org/', './mongodb' ]
+verbose url resolved http://registry.npmjs.org/mongodb
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/mongodb',
+verbose url parsed   pathname: '/mongodb' }
+verbose etag "83N071IQLSFLT2X2MGGMFUDW7"
+ERR! Error: ECONNREFUSED, Could not contact DNS servers
+ERR!     at IOWatcher.callback (dns.js:74:15)
+ERR! Report this *entire* log at:
+ERR!     <http://github.com/isaacs/npm/issues>
+ERR! or email it to:
+ERR!     <npm-@googlegroups.com>
+ERR! 
+ERR! System Linux 2.6.38-11-generic
+ERR! command "node" "/home/alexander/local/node/bin/npm" "install" "mongodb"
+ERR! cwd /home/alexander/elephants
+ERR! node -v v0.4.10
+ERR! npm -v 1.0.18
+verbose exit [ 11, true ]

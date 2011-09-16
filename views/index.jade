@@ -2,24 +2,20 @@
 
 
 include includes/head
+
 div#container
 	h1 Start Drawing!
 	div#colorpicker
 	div#text
 	div#brushsizetext	
 	div#brushslider
+	div#download Download your image!
 	span#clearcanvas Clear Canvas!
 	span#clickme Choose a colour!
 div#drawingdiv
 	canvas#draw(width=900, height=400)
 div#footer
 	p darn simple drawing - alexander gamble 2011
-
-
-
-
-
-
 
 
 script(type="text/javascript")
@@ -54,18 +50,18 @@ script(type="text/javascript")
 		}
 	});
 	
-	//some now.js magic
-	/*
+	//some now.js magic SHHH
+	
 	$("#clearcanvas").click(function(){
-		now.sendclearcanvas();
+		$("canvas#draw").clearCanvas();
 	});
 	
-	now.recclearcanvas = function(){
-		$("canvas#draw").clearCanvas();
+	//now.recclearcanvas = function(){
+	//	$("canvas#draw").clearCanvas();
 	
-	}
+	
 	//end nowjs clearcanvas magic
-	*/
+	
 	//run this so it works on page load
 	sliderupdate();
 	//the drawing circles for painting thing
@@ -146,7 +142,15 @@ script(type="text/javascript")
 	//this is the universal killswitch for the painting. when it is done, simply kill the mousemove function	
 	$(document).mouseup(function(){
 		$("#draw").die('mousemove');
-		})	
-		
+		});		
+
+script(type='text/javascript')
 	
+	$("#download").click(function(){
+	
+		$
+	
+	})
+
+
 	

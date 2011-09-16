@@ -3,8 +3,25 @@
  */
 
 var express = require('express');
+var now = require('now');
+var mongodb = require('mongodb');
+
+
+
+
+var FacebookClient = require("facebook-client").FacebookClient;
+
+var facebook_client = new FacebookClient(
+    "194268853965392", // configure like your fb app page states
+    "2b6b87860a9f9188bb53e6f3680fb904" // configure like your fb app page states
+);
+
 
 var app = module.exports = express.createServer();
+
+var client = new Db('test', new Server("127.0.0.1", 27017, {}));
+
+
 
 // Configuration
 
@@ -35,20 +52,9 @@ app.get('/', function(req, res){
 
 
 
-// Canvasing
+// TO produce node scripts on demand, perhaps you should create a listener based on directory structure so that when the page is called, it runs the script looking up in the database user id and such. it's definitely worth looking at mongodb
 
 
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
-
-var everyone = require("now").initialize(app);
-
-everyone.now.sendclearcanvas = function(){
-		everyone.now.recclearcanvas();
-}
-
-everyone.now.sendpaint = function(){
-	everyone.now.receivepaint(this.now.color, this.now.y, this.now.x, this.now.size);
-}
-
