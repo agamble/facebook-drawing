@@ -3,7 +3,6 @@
  */
 
 var express = require('express');
-var now = require('now');
 var facebook = require('facebook-graph');
 var mongodb = require('mongodb');
 
@@ -37,9 +36,10 @@ app.configure('production', function(){
 
 var user;
 
-app.get('/', function(req, res) {
-	user = facebook.getUserFromCookie(req.cookies, appid, appsecret);
-});
+
+//app.get('/', function(req, res) {
+//	user = facebook.getUserFromCookie(req.cookies, appid, appsecret);
+//});
 
 if (user){
 	console.log('YAR');
@@ -52,7 +52,6 @@ app.get('/', function(req, res){
     title: 'Drawing'
   });
 });
-
 
 
 // TO produce node scripts on demand, perhaps you should create a listener based on directory structure so that when the page is called, it runs the script looking up in the database user id and such. it's definitely worth looking at mongodb

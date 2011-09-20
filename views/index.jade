@@ -1,9 +1,11 @@
-
-
-
 include includes/head
 div#fb-root
-script(src="http://connect.facebook.net/en_US/all.js" type="text/javascript")
+
+script(type="text/javascript")
+	function render() {
+		var dataurl = document.getElementById('draw').toDataURL();
+		document.write(dataurl);
+	}
 
 div#container
 	h1 Start Drawing!
@@ -11,7 +13,7 @@ div#container
 	div#text
 	div#brushsizetext	
 	div#brushslider
-	div#download Download your image!
+	button(type="button", onclick="render()") Download! 
 	span#clearcanvas Clear Canvas!
 	span#clickme Choose a colour!
 div#drawingdiv
@@ -165,13 +167,7 @@ script(type="text/javascript")
 		$("#draw").die('mousemove');
 		});		
 
-script(type='text/javascript')
-	
-	$("#download").click(function(){
-	
-	
-	
-	})
+
 
 
 	
