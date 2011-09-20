@@ -4,24 +4,14 @@
 
 var express = require('express');
 var now = require('now');
+var facebook = require('facebook-graph');
 var mongodb = require('mongodb');
 
 
-
-
-var FacebookClient = require("facebook-client").FacebookClient;
-
-var facebook_client = new FacebookClient(
-    "194268853965392", // configure like your fb app page states
-    "2b6b87860a9f9188bb53e6f3680fb904" // configure like your fb app page states
-);
-
+var appid = '194268853965392';
+var appsecret = '2b6b87860a9f9188bb53e6f3680fb904';
 
 var app = module.exports = express.createServer();
-
-var client = new Db('test', new Server("127.0.0.1", 27017, {}));
-
-
 
 // Configuration
 
@@ -29,6 +19,7 @@ app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.bodyParser());
+  app.use(express.cookieParser());
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
@@ -41,6 +32,18 @@ app.configure('development', function(){
 app.configure('production', function(){
   app.use(express.errorHandler()); 
 });
+
+//FACEBOOK
+
+var user;
+
+app.get('/', function(req, res) {
+	user = facebook.getUserFromCookie(req.cookies, appid, appsecret);
+});
+
+if (user){
+	console.log('YAR');
+}
 
 // Routes
 
