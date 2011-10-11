@@ -1,0 +1,26 @@
+
+include includes/head
+
+div#fb-root
+
+button(type="button", onclick="login()") Login!
+
+script(type="text/javascript")
+	
+	FB.init({
+		appId  : '194268853965392',
+		status : true, // check login status
+		cookie : true, // enable cookies to allow the server to access the session
+		xfbml  : true,  // parse XFBML
+	});
+	
+	function login(){
+		FB.login(handleSessionResponse);
+	};
+	function handleSessionResponse(response){
+		if (!response.session) {
+			$("#download").text("NO");
+			return;
+		}
+	}
+

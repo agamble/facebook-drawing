@@ -9,37 +9,31 @@ script(type="text/javascript")
 
 div#container
 	h1 Start Drawing!
-	div#colorpicker
-	div#text
-	div#brushsizetext	
-	div#brushslider
-	button(type="button", onclick="render()") Download! 
-	span#clearcanvas Clear Canvas!
-	span#clickme Choose a colour!
-div#drawingdiv
-	canvas#draw(width=900, height=400)
-div#footer
-	p darn simple drawing - alexander gamble 2011
+	div#drawingdiv
+		canvas#draw(width=500, height=350)	
+	div#controls
+		div#colorpicker
+		div#text
+		div#brushsizetext	
+		div#brushslider
+		button(type="button", onclick="render()") Download!
+		button(type="button", onclick="login()") Login 
+		button(type="button", onclick="logout()") Logout
+		span#clearcanvas Clear Canvas!
+		span#clickme Choose a colour!
+	div#footer
+		p darn simple drawing - alexander gamble 2011
 
 
 script(type="text/javascript")
-	window.fbAsyncInit = function() {
-		FB.init({
+	FB.init({
 			appId  : '194268853965392',
 			status : true, // check login status
 			cookie : true, // enable cookies to allow the server to access the session
 			xfbml  : true,  // parse XFBML
-			channelUrl  : 'http://www.elephantsdontexist.com/channel.html',
-			oauth : true //enables OAuth 2.0
 		});
-	};
 
-	(function() {
-		var e = document.createElement('script');
-		e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-		e.async = true;
-		document.getElementById('fb-root').appendChild(e);
-	}());
+
 
 script(type="text/javascript")
 	
@@ -48,6 +42,38 @@ script(type="text/javascript")
 	var size;
 	var color;
 	
+	//begin facebook stuff
+	
+	function login(){
+		FB.login(handleSessionResponse);
+	}
+	
+	function logout(){
+		FB.logout(handleSessionResponse);
+	}
+	
+	function handleSessionResponse(response) {
+	// if we dont have a session, just hide the user info
+	if (!response.session) {
+		$("#download").text("NO");
+		return;
+	}
+
+	// if we have a session, query for the user's profile picture and name
+	FB.api(
+		{
+			method: 'fql.query',
+			query: 'SELECT name, pic FROM profile WHERE id=' + FB.getSession().uid
+		},
+			function(response) {
+			var user = response[0];
+		document.write(user.name);
+			}
+		);
+	}
+
+	//end facebook stuff
+
 	//color picker
 	$('#colorpicker').farbtastic();
 	
