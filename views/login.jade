@@ -16,7 +16,9 @@ script(type="text/javascript")
 	
 	function login(){
 		FB.login(handleSessionResponse);
+		setTimeout("location.reload(true);", 1);
 	};
+	
 	function handleSessionResponse(response){
 		if (!response.session) {
 			$("#download").text("NO");
