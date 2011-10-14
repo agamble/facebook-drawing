@@ -17,10 +17,7 @@ div#container
 		div#brushsizetext	
 		div#brushslider
 		button#download(type="button", onclick="render()") Download!
-		button(type="button", onclick="login()") Login 
-		button(type="button", onclick="logout()") Logout
 		button#clearcanvas CLEAR IT
-		button#colourtoggle Colours
 	div#footer
 		p darn simple drawing - alexander gamble 2011
 
@@ -82,12 +79,20 @@ script(type="text/javascript")
 		size = $("#brushslider").slider("value");
 		$("#brushsizetext").text("Brush Size: "+ size);	
 	}
-
+	
+	/* Not needed, because colour picker is always visible
+	var colour = 1;
 	$('#colourtoggle').click(function() {
-			$('#colorpicker').slideDown('slow', function() {
-	// Animation complete.
-			});
+
+		if (colour==1) {
+			$('#colorpicker').slideUp('slow', function() {});
+			colour = 0;
+		} else if (colour==0) {
+			$('#colorpicker').slideDown('slow', function() {});
+			colour = 1;
+		}
 	});
+	*/
 	
 	//slider function
 	$( "#brushslider" ).slider({
@@ -164,8 +169,8 @@ script(type="text/javascript")
 		
 		// now.sendpaint(now.color, now.x, now.y, now.size);
 		
-		$('#colorpicker').slideUp('slow', function() {});
-			
+		// $('#colorpicker').slideUp('slow', function() {});
+		
 		//this calls the mousemove event to live as a result of pressing the mouse down
 		$("#draw").live('mousemove', function(e) {
 			// checking for where the cursor is at 'event' page context minus object context

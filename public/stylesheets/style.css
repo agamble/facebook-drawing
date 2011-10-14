@@ -35,7 +35,7 @@ a {
 	position:relative;
 	right: 0px;
 	top:-360px;
-	width: 170px;
+	width: 176px;
 	left: 560px;
 	height: 360px;
 	
@@ -54,8 +54,8 @@ a {
 
 #brushslider {
 	position: absolute;
-	top: 45px;
-
+	top: 231px;
+	left: 40px;
 	z-index: 1;
 }
 
@@ -63,13 +63,14 @@ a {
 #brushsizetext {
 	position: absolute;
 	color: black;
-	left: 0px;
-	top: 200px;
+	left: 44px;
+	top: 254px;
+	font: 14px Helvetica, Arial, sans-serif;
 }
 
 #drawingdiv {
 	
-	border: 5px solid black;
+	border: 4px solid black;
 	width: 550px
 
 	}
@@ -79,8 +80,8 @@ a {
 #colorpicker {
 	position:absolute;
 	width: 195px;
-	left: -220px;
-	top: 120px;
+	left: -3px;
+	top: -3px;
 	z-index: 4;
 }
 
@@ -88,43 +89,60 @@ a {
 
 #colourtoggle {
 	position: absolute;
-	padding: 10px;
-	width: 112px;
-
-	top: 30px;
-	left: 0px;
 	background-color: black;
 	color: white;
-
+	padding: 20px;
+	font: bold 10px Helvetica, Arial, sans-serif;
+	left: 5px;
+	border-radius: 9px; 
+	-moz-border-radius: 9px; 
+	-webkit-border-radius: 9px; 
+	border: 2px solid #000000;
 }
 
 #footer {
-	width: 100%;
+	width: 90%;
 	height: 20px;
 	text-align: center;
-	font: italic 14px Helvetica, Arial, sans-serif;
+	font: italic 12px Helvetica, Arial, sans-serif;
 	color: gray;
 	position:absolute;
-	top: 370px;
+	top: 365px;
 }
 
 #download {
 	position: absolute;
 	bottom: 0px;
-	background-color: black;
-	color: white;
+	background-color: white;
+	color: black;
 	padding: 10px;
 	font: bold 10px Helvetica, Arial, sans-serif;
 	left: 5px;
+	border-radius: 9px; 
+	-moz-border-radius: 9px; 
+	-webkit-border-radius: 9px; 
+	border: 2px solid #000000;
 }
 
 #clearcanvas {
 	position: absolute;
 	bottom: 0px;
-	background-color: red;
+	background-color: #a52a2a;
 	padding: 10px;
 	font: bold 10px Helvetica, Arial, sans-serif;
 	right: 0px;
+	border-radius: 9px; 
+	-moz-border-radius: 9px; 
+	-webkit-border-radius: 9px; 
+	border: 2px solid #000000;
 	
+}
+
+#clearcanvas:hover {
+	color: #4d4d4d;
+	
+}
+#download:hover {
+	color: #4d4d4d;
 }
 
