@@ -10,17 +10,17 @@ script(type="text/javascript")
 div#container
 	h1 Start Drawing!
 	div#drawingdiv
-		canvas#draw(width=500, height=350)	
+		canvas#draw(width=550, height=350)	
 	div#controls
 		div#colorpicker
 		div#text
 		div#brushsizetext	
 		div#brushslider
-		button(type="button", onclick="render()") Download!
+		button#download(type="button", onclick="render()") Download!
 		button(type="button", onclick="login()") Login 
 		button(type="button", onclick="logout()") Logout
-		span#clearcanvas Clear Canvas!
-		span#clickme Choose a colour!
+		button#clearcanvas CLEAR IT
+		button#colourtoggle Colours
 	div#footer
 		p darn simple drawing - alexander gamble 2011
 
@@ -83,7 +83,7 @@ script(type="text/javascript")
 		$("#brushsizetext").text("Brush Size: "+ size);	
 	}
 
-	$('#clickme').click(function() {
+	$('#colourtoggle').click(function() {
 			$('#colorpicker').slideDown('slow', function() {
 	// Animation complete.
 			});
@@ -148,6 +148,8 @@ script(type="text/javascript")
 		// creating preliminary circle to start painting
 		x = e.pageX - this.offsetLeft;
 		y = e.pageY - this.offsetTop;
+		
+		$("h1").slideUp('slow', function() {});
 		
 		//now.x = x;
 		//now.y = y;
