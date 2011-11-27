@@ -3,9 +3,12 @@ include includes/head
 
 div#fb-root
 
-button(type="button", onclick="login()") Login!
+div#login Start! Click Here!
 
 script(type="text/javascript")
+
+
+
 	
 	FB.init({
 		appId  : '194268853965392',
@@ -14,15 +17,18 @@ script(type="text/javascript")
 		xfbml  : true,  // parse XFBML
 	});
 	
-	function login(){
-		FB.login(handleSessionResponse);
-		setTimeout("location.reload(true);", 1);
-	};
 	
-	function handleSessionResponse(response){
-		if (!response.session) {
-			$("#download").text("NO");
-			return;
+	$('#login').click(function(){
+		FB.login(function(response) {
+			if (response.authResponse) {
+				setTimeout("location.reload(true);", 1);
+			} else {
+				setTimeout("location.reload(true);", 1);
+			}
 		}
-	}
+		)
+	})
+
+
+		
 

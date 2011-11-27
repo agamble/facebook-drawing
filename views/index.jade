@@ -2,10 +2,7 @@ include includes/head
 div#fb-root
 
 script(type="text/javascript")
-	function render() {
-		var dataurl = document.getElementById('draw').toDataURL();
-		document.write(dataurl);
-	}
+
 
 div#container
 	h1 Start Drawing!
@@ -18,6 +15,8 @@ div#container
 		div#brushslider
 		button#download(type="button", onclick="render()") Download!
 		button#clearcanvas CLEAR IT
+		button#post(onclick="postToWall()") Post to wall
+		button#share(onclick="share()") Share
 	div#footer
 		p darn simple drawing - alexander gamble 2011
 
@@ -28,7 +27,7 @@ script(type="text/javascript")
 			status : true, // check login status
 			cookie : true, // enable cookies to allow the server to access the session
 			xfbml  : true,  // parse XFBML
-		});
+	});
 
 
 
@@ -39,35 +38,17 @@ script(type="text/javascript")
 	var size;
 	var color;
 	
-	//begin facebook stuff
 	
-	function login(){
-		FB.login(handleSessionResponse);
-	}
-	
-	function logout(){
-		FB.logout(handleSessionResponse);
-	}
-	
-	function handleSessionResponse(response) {
-	// if we dont have a session, just hide the user info
-	if (!response.session) {
-		$("#download").text("NO");
-		return;
+	function render() {
+		var dataurl = document.getElementById('draw').toDataURL();
+		document.write('<img src=' + dataurl + ' /><br /><br /><div id="dl_instructions" style="font: 18px Helvetica, Arial, sans-serif; text-align: center;">right click on image to save to computer</div>');
 	}
 
+	
+	//begin facebook stuff
+	
+
 	// if we have a session, query for the user's profile picture and name
-	FB.api(
-		{
-			method: 'fql.query',
-			query: 'SELECT name, pic FROM profile WHERE id=' + FB.getSession().uid
-		},
-			function(response) {
-			var user = response[0];
-		document.write(user.name);
-			}
-		);
-	}
 
 	//end facebook stuff
 
@@ -199,8 +180,82 @@ script(type="text/javascript")
 	$(document).mouseup(function(){
 		$("#draw").die('mousemove');
 		});		
+	function rnd(){ return String((new Date()).getTime()).replace(/\D/gi,'') }
 
 
+	function postToWall() {
+	
+		try {
+			var img = document.getElementById('draw').toDataURL().split(',')[1];
+		} catch(e) {
+			var img = document.getElementById('draw').toDataURL().split(',')[1];
+		}
+	
+		$.ajax({
+			url: 'http://api.imgur.com/2/upload.json',
+			type: 'POST',
+			data: {
+				type: 'base64',
+				key: '36992a69bc63fc9bdfb5c630e2cbe554',
+				name: rnd(),
+				title: 'drawing',
+				caption: 'look at my picture!',
+				image: img
+				},
+			datatype: 'json'
+		}).success(function(data){
+			var imgur_url = data['upload']['links']['original'];
+		
+			// calling the API ...
+			var obj = {
+				method: 'feed',
+				link: imgur_url,
+				source: imgur_url,
+				name: 'darn simple drawing',
+				description: 'I drew a picture!'
+				};
 
+			function callback(response) {
+
+				}
+
+			FB.ui(obj, callback);
+		})
+	}
+
+	
+	function share(){
+	
+		try {
+			var img = document.getElementById('draw').toDataURL().split(',')[1];
+		} catch(e) {
+			var img = document.getElementById('draw').toDataURL().split(',')[1];
+		}
+	
+		$.ajax({
+			url: 'http://api.imgur.com/2/upload.json',
+			type: 'POST',
+			data: {
+				type: 'base64',
+				key: '36992a69bc63fc9bdfb5c630e2cbe554',
+				name: rnd(),
+				title: 'drawing',
+				caption: 'look at my picture!',
+				image: img
+				},
+			datatype: 'json'
+		}).success(function(data){
+			var imgur_url = data['upload']['links']['original'];
+		
+
+			FB.ui({
+				method: 'send',
+				name: 'darn simple drawing',
+				description: 'I drew a picture!',
+				link: imgur_url,
+				picture: imgur_url,
+			});
+		})
+	}
 
 	

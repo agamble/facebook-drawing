@@ -146,3 +146,54 @@ a {
 	color: #4d4d4d;
 }
 
+#post {
+	position: absolute;
+	bottom: 40px;
+	background-color: white;
+	color: black;
+	padding: 10px;
+	font: bold 10px Helvetica, Arial, sans-serif;
+	right: 0px;
+	border-radius: 9px; 
+	-moz-border-radius: 9px; 
+	-webkit-border-radius: 9px; 
+	border: 2px solid #000000;
+	
+}
+
+#share {
+	position: absolute;
+	bottom: 40px;
+	background-color: white;
+	color: black;
+	padding: 10px;
+	font: bold 10px Helvetica, Arial, sans-serif;
+	left: 5px;
+	border-radius: 9px; 
+	-moz-border-radius: 9px; 
+	-webkit-border-radius: 9px; 
+	border: 2px solid #000000;
+	
+}
+
+#login {
+	margin: 0 auto;
+
+	background-color: white;
+	color: black;
+	padding: 10px;
+	font: bold 20px Helvetica, Arial, sans-serif;
+	
+	border-radius: 9px; 
+	-moz-border-radius: 9px; 
+	-webkit-border-radius: 9px; 
+	border: 2px solid #000000;
+	
+}
+
+#dl_instructions {
+
+	font: 14px Helvetica, Arial, sans-serif;
+
+}
+

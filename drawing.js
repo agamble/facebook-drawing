@@ -37,7 +37,6 @@ var user;
 
 
 
-
 // Routes
 
 app.get('/', function(req, res){
@@ -64,7 +63,13 @@ app.get('/', function(req, res){
 
 // TO produce node scripts on demand, perhaps you should create a listener based on directory structure so that when the page is called, it runs the script looking up in the database user id and such. it's definitely worth looking at mongodb
 
-app.post('/', function(req, res){res.redirect("https://www.facebook.com/dialog/oauth?client_id=194268853965392&redirect_uri=http://www.elephantsdontexist.com:3000") });
+
+app.post('/', function(req, res){
+	res.redirect("http://www.elephantsdontexist.com:3000");
+	console.log(req.body); 
+	});
+
+
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
